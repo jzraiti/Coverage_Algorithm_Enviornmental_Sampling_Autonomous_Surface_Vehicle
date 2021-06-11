@@ -1,0 +1,1 @@
+cv2.imshow() doesnt seem to work with ubuntu 18.04 so use matplotlib
