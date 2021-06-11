@@ -1,0 +1,1 @@
+set python interpreter in vscode with ctrl shift p and python interpreter 

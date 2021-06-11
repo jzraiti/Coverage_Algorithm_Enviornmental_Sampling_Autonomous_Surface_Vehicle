@@ -17,7 +17,7 @@ if image is None:
 # Window name in which image is displayed
 window_name = 'Image'
 
-# Start coordinate, here (225, 0)
+# Start coordinate, here (225, 0) tuple
 # represents the top right corner of image
 start_point = (0, 100)
 
