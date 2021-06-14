@@ -99,4 +99,5 @@ def zigzag(start_point,end_point,num_turns):
 start_point = np.array([ 10 , 20]) #list[] vs tuple() coordinates
 end_point = np.array([130,140])
 
-zigzag(start_point,end_point,10)
+zigzag(start_point,end_point,3)
+

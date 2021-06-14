@@ -1,0 +1,7 @@
+for skeletonizing for this particular application it seems like medial axis is what we want
+medial_axis(blobs, return_distance=True)
+from plot skeleton.ipynb : this is because we are making a zig zag pattern that would logically be best optimized
+when following a path down the center of the 2d space 
+
+also setting an iteration limit could be interesting / fruitful:
+maybe we only take a straight path down small waterways while in the large open water ways we zig zag

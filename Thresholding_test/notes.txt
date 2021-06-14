@@ -1,0 +1,6 @@
+to threshold the image we are going to use opencv
+ret,thresh1 = cv.threshold(img,127,255,cv.THRESH_BINARY)
+or 
+ret,thresh2 = cv.threshold(img,127,255,cv.THRESH_BINARY_INV)
+defined as:
+	cv.threshold(	src, thresh, maxval, type[, dst]	) -> 	retval, dst
