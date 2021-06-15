@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 #find lake image file
-img = cv.imread(cv.samples.findFile("Lake_Murray_Map/SouthEastCorner.png"),0)
+img = cv.imread(cv.samples.findFile("Lake_Murray_Map/SouthEastCorner_BW.jpg"),0)
 
 #img = cv.imread('gradient.png',0)
 
@@ -22,4 +22,6 @@ for i in range(6):
     plt.title(titles[i])
     plt.xticks([]),plt.yticks([])
 plt.show()
+
+cv.imwrite("SouthEastCorner_BW.png", thresh1)
 
