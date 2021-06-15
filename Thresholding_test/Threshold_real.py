@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 #find lake image file
-img = cv.imread(cv.samples.findFile("testcorner.png"))
+img = cv.imread(cv.samples.findFile("Lake_Murray_Map/SouthEastCorner.png"))
 
 cv.imshow("Display window", img)
 k = cv.waitKey(10*1000)
@@ -14,4 +14,4 @@ ret,thresh1 = cv.threshold(img,127,255,cv.THRESH_BINARY)
 cv.imshow("Display window", thresh1)
 k = cv.waitKey(10*1000)
 
-cv.imwrite("testcorner_blackandwhite.png", thresh1)
+cv.imwrite("image_blackandwhite.png", thresh1)

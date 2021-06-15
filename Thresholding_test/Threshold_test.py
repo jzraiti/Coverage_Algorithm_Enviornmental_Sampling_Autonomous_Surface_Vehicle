@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 #find lake image file
-img = cv.imread(cv.samples.findFile("lake_png.png"))
+img = cv.imread(cv.samples.findFile("Lake_Murray_Map/SouthEastCorner.png"),0)
 
 #img = cv.imread('gradient.png',0)
 
