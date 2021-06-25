@@ -20,13 +20,16 @@ def drawline(p1,p2,image):
     # Start coordinate, here (225, 0) tuple
     # represents the top right corner of image
 
-    start_point = tuple(p1.astype(int).tolist()) #input is numpyfloat array
-    end_point = tuple(p2.astype(int).tolist()) # cv2.line needs tuple int inputs 
+    p1 = tuple(p1.astype(int).tolist()) #input is numpyfloat array
+    p2 = tuple(p2.astype(int).tolist()) # cv2.line needs tuple int inputs 
 
+    #AND THEN FLIP THE  Y , X  FORMAT TO GRAPH IT CORRECTLY !!!!!! 
+    start_point  = [p1[1],p1[0]]
+    end_point = [p2[1],p2[0]]
     # Black color in BGR
-    color = (0, 0, 0)
+    color = (225, 225, 225)
     # Line thickness of 1 px
-    thickness = 1
+    thickness = 10
     # Using cv2.line() method
     # Draw a diagonal black line with thickness of 1 px
     image = cv2.line(image, start_point, end_point, color, thickness) #######------
@@ -34,7 +37,7 @@ def drawline(p1,p2,image):
 
 def open_image():
         #fun fact r represents raw string so that backslashes are left in
-    image_path = r'/home/jasonraiti/Documents/GitHub/USC_REU/OpenCV_tests/test.png'
+    image_path = r'./Lake_Murray_Map_Skeletons/SE_corner_skeleton.png'
     path = image_path
     # Reading an image in grayscale mode
     image = cv2.imread(path, 0)
@@ -56,7 +59,7 @@ def zigzag(start_point,end_point,num_turns):
     
     
     #num turns must be greater than 1 
-    slope_vector = np.array([ end_point[1] - start_point[1], end_point[0]- start_point[0] ])
+    slope_vector = np.array([  end_point[0]- start_point[0] , end_point[1] - start_point[1]])
     step_vector = slope_vector / (num_turns - 1) # because the number of turns will be one less than the number of partitions
     for i in range(0,num_turns): 
         #connect point i and point i+1
@@ -92,12 +95,15 @@ def zigzag(start_point,end_point,num_turns):
             image = drawline(pt1,pt2,image)
 
             pt_old =pt2 #save endpoint for next start 
-
+    image = drawline(start_point,end_point,image)
     show_image(image)
 
 #note that 0,0 is top left corner and 225,225 is bottom right
-start_point = np.array([ 10 , 20]) #list[] vs tuple() coordinates
-end_point = np.array([130,140])
+start_point = np.array([ 0 , 100]) #list[] vs tuple() coordinates in x y format should be 
+end_point = np.array([100 ,0]) # so if this is printing right it should show a line from top right middle to left middle
 
-zigzag(start_point,end_point,15)
+start_point = np.array([ 10 , 100]) #list[] vs tuple() coordinates in y , x form 
+end_point = np.array([200,200])
+
+zigzag(start_point,end_point,25)
 

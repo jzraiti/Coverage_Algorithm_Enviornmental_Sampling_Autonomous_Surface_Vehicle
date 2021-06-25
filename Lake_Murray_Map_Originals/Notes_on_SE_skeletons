@@ -6,6 +6,11 @@ Medial Info:
     this skeleton has 586.0 edge lines, 346 nodes, 81 endpoints, and 1 islands. 
     the skeleton is of length 3010 pixels.
     the edgelines are of average length 4.406143344709897, .
+    The max distance from a sampled point is 69.33974329343886 and the mean distance is 11.154926120433965 
+    The length of the skeleton is 3010, and the mean distance per length is 0.0037059555217388586, perfect coverage would be 0.
+
+
+
 
 Lee info:
     (403, 341)
@@ -13,6 +18,9 @@ Lee info:
     this skeleton has 149.0 edge lines, 88 nodes, 33 endpoints, and 0 islands. 
     the skeleton is of length 2367 pixels.
     the edgelines are of average length 15.073825503355705, .
+    The max distance from a sampled point is 62.93647591023825 and the mean distance is 12.63397975017623 
+    The length of the skeleton is 2367, and the mean distance per length is 0.0053375495353511744, perfect coverage would be 0.
+
 
 Skeleton info:
     (403, 341)
@@ -20,6 +28,8 @@ Skeleton info:
     this skeleton has 361.0 edge lines, 214 nodes, 55 endpoints, and 0 islands. 
     the skeleton is of length 2751 pixels.
     the edgelines are of average length 6.875346260387811, .
+    The max distance from a sampled point is 62.22539674441618 and the mean distance is 11.244936025220479 
+    The length of the skeleton is 2751, and the mean distance per length is 0.004087581252352046, perfect coverage would be 0.
 
 
 Partial Thinned info:
@@ -29,9 +39,15 @@ Partial Thinned info:
     the skeleton is of length 33172 pixels.
     the edgelines are of average length 0.015498838399428136, .
 
+
+
+
 Thinned info:
     (403, 341)
     all good
     this skeleton has 315.0 edge lines, 183 nodes, 60 endpoints, and 0 islands. 
     the skeleton is of length 3177 pixels.
     the edgelines are of average length 9.314285714285715, .
+
+    The max distance from a sampled point is 73.92563831310488 and the mean distance is 11.507055084808796 
+    The length of the skeleton is 3177, and the mean distance per length is 0.003621987750962794, perfect coverage would be 0.
