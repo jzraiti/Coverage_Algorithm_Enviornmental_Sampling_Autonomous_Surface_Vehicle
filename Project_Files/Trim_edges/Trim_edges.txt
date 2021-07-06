@@ -1,0 +1,14 @@
+
+
+
+From locate nodes of /MAPS/Lake_Murray_Map_Skeletons/e_d_murray_skeleton.png
+
+be sure you are pathing to a skeleton for locate_nodes
+(ydim , xdim) ==  (403, 341)
+No errors detected
+this skeleton has 126.0 edge lines, 72 nodes, 27 endpoints, and 0 islands. 
+the skeleton is of length 1809 pixels.
+the edgelines are of average length 13.571428571428571, .
+this function returns total_skeleton, nodes, edges, endpoints, and island's locations in (x,y) coordinate form
+
+
