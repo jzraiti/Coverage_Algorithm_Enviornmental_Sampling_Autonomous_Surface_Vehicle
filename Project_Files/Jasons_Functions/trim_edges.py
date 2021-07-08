@@ -20,10 +20,10 @@ def trim_edges(path,weight_threshold):
     trimmed = []
 
     graph = skeleton_to_graph(path)
+    
+    
+    
 
-    print("\n\nfrom trim_edges:")
-    print("trimmed edges will be shown in red")
-    print("retained edges will be shown in green")
 
     for (s,e) in graph.edges():
         
@@ -31,10 +31,15 @@ def trim_edges(path,weight_threshold):
         start = [ ps[0,1],ps[0,0] ]
         end = [ ps[-1,1],ps[-1,0] ]
         
+        
+        print(graph[s][e]['weight'] < weight_threshold )
+        
+        
         if ( (start in endpoint_locations) or (end in endpoint_locations) ): # ------weight < theshold AND endpoints are not nodes
-            # print('edge found')  
+            print('edge found')  
             if graph[s][e]['weight'] < weight_threshold:
-                # print('trim this one')
+                
+                print('trim this one')
                 trimmed.append(graph[s][e]['pts'])
                 plt.plot(ps[:,1], ps[:,0], 'green')
             else:
@@ -46,7 +51,11 @@ def trim_edges(path,weight_threshold):
             new_array.append(graph[s][e]['pts'])
             plt.plot(ps[:,1], ps[:,0], 'red')
             
-    # also implement visualization the check trimming results 
+    # also implement visualization the check trimming results : uncomment below - or make this an argument
+    print("\n\nfrom trim_edges:")
+    print("trimmed edges will be shown in red")
+    print("retained edges will be shown in green")
+    print("trimmed" , trimmed)
     show_image(image)
     plt.show()
     # plt.savefig('trimmed_results.pdf')
