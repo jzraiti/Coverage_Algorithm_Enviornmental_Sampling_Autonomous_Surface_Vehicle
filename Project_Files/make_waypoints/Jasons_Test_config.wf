@@ -1,0 +1,17 @@
+World: e_d_image4.png
+
+Upper Left Latitude: 34.07226
+Upper Left Longitude: -81.27151
+Bottom Right Latitude: 34.01453
+Bottom Right Longitude: -81.21265
+
+# --- Sensor location -----#
+Start Point LAT: 34.02618 # make this jakes landing 
+Start Point LONG: -81.2358
+
+Image Width: 341
+Image Height: 403
+
+-----
+sensor width: 12 meter #keep but this will be tweaked later
+turn radius: 5 meter

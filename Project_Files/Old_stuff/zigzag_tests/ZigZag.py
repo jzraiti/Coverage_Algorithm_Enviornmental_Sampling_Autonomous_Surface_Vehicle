@@ -37,7 +37,7 @@ def drawline(p1,p2,image):
 
 def open_image():
         #fun fact r represents raw string so that backslashes are left in
-    image_path = r'./Lake_Murray_Map_Skeletons/SE_corner_skeleton.png'
+    image_path = r'../MAP/Lake_Murray_Map_Skeletons/SE_corner_skeleton.png'
     path = image_path
     # Reading an image in grayscale mode
     image = cv2.imread(path, 0)

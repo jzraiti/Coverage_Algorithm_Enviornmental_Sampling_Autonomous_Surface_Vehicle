@@ -1,0 +1,15 @@
+-------------------------------------------------
+use the functions in this directory by doing this:
+
+import sys
+sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+
+from get_graph_distance import *
+
+from skeleton_to_graph import * # graph = skeleton_to_graph(path)
+
+------------------------------------------
+heres a tip silly : 
+
+if __name__ == "__main__":
+    main()
