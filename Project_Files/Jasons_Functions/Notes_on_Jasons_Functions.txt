@@ -8,6 +8,11 @@ from get_graph_distance import *
 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
 
+# inputs = path to image, erode first (1) or dialate first (2) .desired number of erosions, desired number of dialations 
+# outputs = eroded then dialated image
+from erosion_dilation import * 
+
+
 ------------------------------------------
 heres a tip silly : 
 

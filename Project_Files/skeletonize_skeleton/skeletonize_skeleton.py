@@ -5,6 +5,8 @@ sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_
 
 from trim_edges import * # new_array = trim_edges(path,weight_threshold)
 from open_or_show_image import * 
+from erosion_dilation import * 
+
 
 
 from skimage.morphology import skeletonize
@@ -36,9 +38,25 @@ for edge in new_array:
         
 show_image(new_image) # this is the inverse of thinned skel
 
+cv2.imwrite('negative_skeleton.png', new_image)
+#--------------------------------------------------- do erosion and dilation
+
+# path to image
+path = r'negative_skeleton.png'
+option = 1 
+num_erosions = 1
+num_dilations = 0
+
+# inputs = path to image, erode first (1) or dialate first (2) .desired number of erosions, desired number of dialations 
+# outputs = eroded then dialated image
+e_d_image = erosion_dilation(path,option,num_erosions,num_dilations)
+
+cv2.imwrite('e_d_image.png', e_d_image )
+
 #-------------------------------------------------- get thinnned skel of skel
 
-blobs = new_image > 127
+blobs = open_image('e_d_image.png')
+blobs = blobs > 127
 
 thinned = thin(blobs)
 thinned_partial = thin(blobs, max_iter=10)
