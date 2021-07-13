@@ -38,7 +38,23 @@ def erosion_dilation(path,option,num_erosions,num_dilations):
     # show_image(e_d_image)
     # cv2.imwrite('e{}_d{}_{}.png'.format(num_erosions,num_dilations,path), e_d_image )
     # cv2.imwrite('e_d_image.png', e_d_image )
-    return e_d_image
+    
+    if option == 1:
+        name = 'e' + str(num_erosions) + r'_d' + str(num_dilations) 
+    elif option == 2:
+        name =  + r'_d' + str(num_dilations) +  'e' + str(num_erosions)
+    else:
+        print('error: invalid option')
+        
+        #create name for files
+    # print(path)
+    name = name + '_' + str(path)
+    name = name.replace("/", "_")
+    name = name.replace(".", "_")
+    name = str(name) + '.png' 
+    cv2.imwrite(name, e_d_image )
+    
+    return[ e_d_image , name]
 
 
 

@@ -17,7 +17,7 @@ def jasons_skeletonize(path):
     # last parameter 0 = greyscale 1 = color -1 = unchanged 
 
     #convert data from int to np bool 
-    blobs = blobs < 123
+    blobs = blobs > 123 # BIGNOTE: this is made for skeletonization when the white area is the desired area for skeletonization
 
     # Compute the medial axis (skeleton) and the distance transform
     skel, distance = medial_axis(blobs, return_distance=True)
@@ -32,13 +32,26 @@ def jasons_skeletonize(path):
     # create thinned skeleton
     thinned = thin(blobs)
     thinned_partial = thin(blobs, max_iter=40)
-
-    cv.imwrite('_medial_axis.png', dist_on_skel * 30)
-    cv.imwrite('_skeleton.png', skeleton * 255)
-    cv.imwrite('_skeleton_lee94.png', skeleton_lee )
-    cv.imwrite('_thinned.png', thinned * 255)
-    cv.imwrite('_thinned_partial.png', thinned_partial * 255)
-    return 0
+    
+    #create name for files
+    name = str(path)
+    name = name.replace("/", "_")
+    name = name.replace(".", "_")
+    # print(name)
+    
+    med_axis = dist_on_skel * 255 # THESE scalars what do they do? 
+    skeleton = skeleton * 255
+    #skeleton_lee
+    thinned = thinned * 255
+    thinned_partial = thinned_partial * 255
+    cv.imwrite(name + '_medial_axis.png', med_axis)
+    cv.imwrite(name + '_skeleton.png', skeleton)
+    cv.imwrite(name + '_skeleton_lee94.png', skeleton_lee )
+    cv.imwrite(name + '_thinned.png', thinned)
+    cv.imwrite(name + '_thinned_partial.png', thinned_partial)
+    
+    paths_list = [name + '_medial_axis.png' , name + '_skeleton.png' ,   name + '_skeleton_lee94.png' , name + '_thinned.png' ,  name + '_thinned_partial.png'   ]
+    return med_axis , skeleton , skeleton_lee , thinned , thinned_partial , name , paths_list
 
 
 

@@ -32,14 +32,14 @@ def trim_edges(path,weight_threshold):
         end = [ ps[-1,1],ps[-1,0] ]
         
         
-        print(graph[s][e]['weight'] < weight_threshold )
+        # print(graph[s][e]['weight'] < weight_threshold )
         
         
         if ( (start in endpoint_locations) or (end in endpoint_locations) ): # ------weight < theshold AND endpoints are not nodes
-            print('edge found')  
+            # print('edge found')  
             if graph[s][e]['weight'] < weight_threshold:
                 
-                print('trim this one')
+                # print('trim this one')
                 trimmed.append(graph[s][e]['pts'])
                 plt.plot(ps[:,1], ps[:,0], 'green')
             else:
@@ -55,9 +55,18 @@ def trim_edges(path,weight_threshold):
     print("\n\nfrom trim_edges:")
     print("trimmed edges will be shown in red")
     print("retained edges will be shown in green")
-    print("trimmed" , trimmed)
-    show_image(image)
+    # print("trimmed" , trimmed)
+    
+    # show_image(image)
+    plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
+
+    name = 'trimmed_' + str(path)
+    name = name.replace("/", "_")
+    name = name.replace(".", "_")
+    name = str(name) + '.png' 
+    plt.savefig(name, format="png")
+    
     plt.show()
-    # plt.savefig('trimmed_results.pdf')
+
 
     return new_array
