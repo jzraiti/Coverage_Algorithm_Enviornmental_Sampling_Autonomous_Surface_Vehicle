@@ -52,8 +52,6 @@ def erosion_dilation(path,option,num_erosions,num_dilations):
     else:
         print('error: invalid option')
         
-        #create name for files
-    # print(path)
     
     name = name + '_' + str(path)
     name = name.replace("/", "_")
