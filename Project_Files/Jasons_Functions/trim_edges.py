@@ -64,9 +64,30 @@ def trim_edges(path,weight_threshold):
     name = name.replace("/", "_")
     name = name.replace(".", "_")
     name = str(name) + '.png' 
-    plt.savefig(name, format="png")
+    # plt.savefig(name, format="png")
     
     plt.show()
 
 
-    return new_array
+    # ------- make new "image array" that can be written using cv2 -----
+    # image = open_image(path) #numpy.ndarray (403,341) ->  (y,x) each y,x point has a value 225 or 0 
+    black_image = np.zeros((image.shape[0],image.shape[1])) # get black background 
+    # show_image(black_image)
+
+    # ---------------- get trimmed skeleton 
+    # weight_threshold = 30
+    # new_array = trim_edges( path,weight_threshold ) # NEW ARRAY IS IN Y,X format, as a nested list of graph[edges[x,ypos]]
+
+    # new_image = black_image +225
+    new_image = black_image
+    for edge in new_array:
+        for point in edge:
+            # print(point[0], point[1])
+            new_image[point[0]][point[1]] = 225
+            
+    show_image(new_image) # this is the inverse of thinned skel
+
+    cv2.imwrite(name, new_image)
+
+
+    return new_array , new_image

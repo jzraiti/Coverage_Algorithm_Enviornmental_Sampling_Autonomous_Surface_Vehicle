@@ -1,0 +1,35 @@
+# for this program i need to take in as parameter a skeletonized image
+
+# convert this skeletonized image into a undirected edge matrix
+
+# take the edge matrix and find the coordinates of each respective node endpoint
+
+# use the naive zig zag function to draw a zig zag between them 
+
+later I can run the tests on this and see if it significantly improved coverage
+
+For this I will need code from: skeleton to graph and zig zag
+
+----------------------------------------------------------------------
+
+Example edge from graph:
+
+graph = skeleton_to_graph(path)
+for (s,e) in graph.edges():
+    print(s,e, "\n\n")
+    print(graph[s][e])
+    break
+
+out put : 
+
+{'pts': array([[  0, 134],
+       [  0, 135],
+       [  1, 136],
+       [  2, 137],
+       [  3, 137],
+       [  4, 137],
+       [  5, 137],
+       [  6, 137]], dtype=int16), 'weight': 7.82842712474619}
+-----------------------------------
+'pts' = all of the pts on the edge (including the node?)
+'weight' = mathematical length of the edge (+1 for horizontal and verticle, +sqrt(2) for diagonal movement)

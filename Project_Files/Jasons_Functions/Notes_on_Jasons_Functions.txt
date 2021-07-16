@@ -4,13 +4,22 @@ use the functions in this directory by doing this:
 import sys
 sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
-from get_graph_distance import *
+from drawline import * 
+
+from erosion_dilation import * 
+
+from jasons_skeletonize import * 
+
+from trim_edges import * # new_array = trim_edges(path,weight_threshold)
+
+from generate_waypoints import *
 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
 
-# inputs = path to image, erode first (1) or dialate first (2) .desired number of erosions, desired number of dialations 
-# outputs = eroded then dialated image
-from erosion_dilation import * 
+from open_or_show_image import * # image = open_image(path) , show_image(image)
+
+from locate_nodes import * # total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations = locate_nodes(path)
+
 
 
 ------------------------------------------
