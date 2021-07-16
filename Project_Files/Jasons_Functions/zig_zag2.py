@@ -35,11 +35,7 @@ def zig_zag2(start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i 
     #inputs: start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i
     #   i is just an integer, if even it will zig, if odd it will zag
     
-    
-    
     # boundary_image = (boundary_image > 0)
-    
-    
     
     slope_vector = np.array([  end_point[0]- start_point[0] , end_point[1] - start_point[1] ]) # vector representation of slope here in format [y , x]
     # step_vector = slope_vector / (num_turns - 1) # partition total change inslope into steps to zig zag across and -1 because the number of turns will be one less than the number of partitions (also in format [y , x])
@@ -49,30 +45,19 @@ def zig_zag2(start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i 
     
     negative_image = get_negative_image( boundary_image)
     
-
-    
     a = find_nearest_white( negative_image, end_point) #this might have confusion of coordinate point paits 
     b = end_point
     print( a,b )
-
-    
-    
     
     dist = np.linalg.norm(a-b) #this calculates euclidean distance between two points 
     print(dist , '\n')
     zig_zag_size_vector = normalized_slope_vector * int(dist-.05) # make the zig zag only as far as the closest boundary 
 
-
-
     if dist == 0: 
         show_image ( negative_image)
     # print(zig_zag_size_vector)
 
-
-
     # ----------------------- below the actual zig zags happen 
-
-
 
     if i%2 ==0: # set zig and zag values (with alternating directions)
         zigzag = [-zig_zag_size_vector[1], zig_zag_size_vector[0]]
@@ -91,3 +76,8 @@ def zig_zag2(start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i 
     #show_image(image)
     # show_image(get_negative_image( boundary_image))
     return(zig_zag_image)
+
+
+
+# future me : this is what happens --> make array of all pixels on perpedicular vector 
+# make 1 directional --> only in direction of zig zag
