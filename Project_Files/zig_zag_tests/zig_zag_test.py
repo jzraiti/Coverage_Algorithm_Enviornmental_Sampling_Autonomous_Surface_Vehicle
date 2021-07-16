@@ -1,12 +1,10 @@
-
-
-
+import cv2 
 import numpy as np
 
 import sys
 sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
-from zig_zag import * 
+from zig_zag import * # (start_point,end_point,num_turns,zig_zag_size,image)
 
 from skeleton_to_graph import * 
 
@@ -29,15 +27,15 @@ image = open_image(path) #start by opening the image, choose image in the functi
 
 for (s,e) in graph.edges():
 
+    # print(int(graph[s][e]['weight'] /10) )
+
     start_point = np.array([ ps[s,0] , ps[s,1] ]) #list[] vs tuple() coordinates y , x 
     end_point = np.array([  ps[e,0] , ps[e,1]  ])
-    image = zig_zag(start_point,end_point,10,graph[s][e]['weight']/2,image)
+    image = zig_zag(  start_point  ,  end_point  ,  int(graph[s][e]['weight'] /10)  ,  graph[s][e]['weight']/10  ,  image  )
+
+
 
 show_image(image)
 cv2.imwrite('zigzag_full.png', image )
-
-
-
-
 
 

@@ -52,9 +52,9 @@ def trim_edges(path,weight_threshold):
             plt.plot(ps[:,1], ps[:,0], 'red')
             
     # also implement visualization the check trimming results : uncomment below - or make this an argument
-    print("\n\nfrom trim_edges:")
-    print("trimmed edges will be shown in red")
-    print("retained edges will be shown in green")
+    # print("\n\nfrom trim_edges:")
+    # print("trimmed edges will be shown in red")
+    # print("retained edges will be shown in green")
     # print("trimmed" , trimmed)
     
     # show_image(image)
@@ -84,10 +84,12 @@ def trim_edges(path,weight_threshold):
         for point in edge:
             # print(point[0], point[1])
             new_image[point[0]][point[1]] = 225
-            
-    show_image(new_image) # this is the inverse of thinned skel
+    
+    
+    
+    # show_image(new_image) # this is the inverse of thinned skel
 
-    cv2.imwrite(name, new_image)
+    # cv2.imwrite(name, new_image)
 
 
     return new_array , new_image
