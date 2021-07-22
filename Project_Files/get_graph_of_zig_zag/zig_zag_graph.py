@@ -1,0 +1,1 @@
+# MAPS/Map_Skeletons/Ibrahim_test_skeletons/preprocessing/full_zig_zag/zigzag_full.png
