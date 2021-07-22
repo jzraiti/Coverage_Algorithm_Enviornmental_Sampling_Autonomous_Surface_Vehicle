@@ -10,21 +10,13 @@ from open_or_show_image import * # image = open_image(path) , show_image(image)
 from locate_nodes import * # total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations = locate_nodes(path)
 
 def trim_edges(path,weight_threshold):
-    """takes in path to image and weight threshold to trim from 
-        
-    :param path: path to image
-    :type path: string
-    :param weight_threshold: the threshold number of pixels and edge needs to be trimmed
-    :type option: int
 
-    :rtype: new_array = an array of just the points on retained edges , new_image = the complete image array including background area
-    :return: edge and image arrays with trimmed edges
-    """
+    
     graph = skeleton_to_graph(path)
     image = open_image(path) #start by opening the image, choose image in the function 
     total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations = locate_nodes(path)
 
-    new_array= []
+    new_array_just_edges= []
     trimmed = []
 
     graph = skeleton_to_graph(path)
@@ -35,6 +27,10 @@ def trim_edges(path,weight_threshold):
         start = [ ps[0,1],ps[0,0] ]
         end = [ ps[-1,1],ps[-1,0] ]
         
+        
+        # print(graph[s][e]['weight'] < weight_threshold )
+        
+        
         if ( (start in endpoint_locations) or (end in endpoint_locations) ): # ------weight < theshold AND endpoints are not nodes
             # print('edge found')  
             if graph[s][e]['weight'] < weight_threshold:
@@ -44,19 +40,26 @@ def trim_edges(path,weight_threshold):
                 plt.plot(ps[:,1], ps[:,0], 'green')
             else:
                 # print('nah leave em be')
-                new_array.append(graph[s][e]['pts'])
+                new_array_just_edges.append(graph[s][e]['pts'])
                 plt.plot(ps[:,1], ps[:,0], 'red')
         else:
             # print("no matches")
-            new_array.append(graph[s][e]['pts'])
+            new_array_just_edges.append(graph[s][e]['pts'])
             plt.plot(ps[:,1], ps[:,0], 'red')
-
+            
+    # also implement visualization the check trimming results : uncomment below - or make this an argument
+    # print("\n\nfrom trim_edges:")
+    # print("trimmed edges will be shown in red")
+    # print("retained edges will be shown in green")
+    # print("trimmed" , trimmed)
+    
+    # show_image(image)
     plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
 
-    # name = 'trimmed_' + str(path)
-    # name = name.replace("/", "_")
-    # name = name.replace(".", "_")
-    # name = str(name) + '.png' 
+    name = 'trimmed_' + str(path)
+    name = name.replace("/", "_")
+    name = name.replace(".", "_")
+    name = str(name) + '.png' 
     # plt.savefig(name, format="png")
     
     plt.show()
@@ -67,9 +70,16 @@ def trim_edges(path,weight_threshold):
 
     # ---------------- get trimmed skeleton 
     new_image = black_image
-    for edge in new_array:
+    for edge in new_array_just_edges:
         for point in edge:
             # print(point[0], point[1])
             new_image[point[0]][point[1]] = 255
     
-    return new_array , new_image
+    
+    
+    # show_image(new_image) # this is the inverse of thinned skel
+
+    # cv2.imwrite(name, new_image)
+
+
+    return new_array_just_edges , new_image

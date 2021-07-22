@@ -10,21 +10,12 @@ from open_or_show_image import * # image = open_image(path) , show_image(image)
 from locate_nodes import * # total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations = locate_nodes(path)
 
 def trim_edges(path,weight_threshold):
-    """takes in path to image and weight threshold to trim from 
-        
-    :param path: path to image
-    :type path: string
-    :param weight_threshold: the threshold number of pixels and edge needs to be trimmed
-    :type option: int
 
-    :rtype: new_array = an array of just the points on retained edges , new_image = the complete image array including background area
-    :return: edge and image arrays with trimmed edges
-    """
     graph = skeleton_to_graph(path)
     image = open_image(path) #start by opening the image, choose image in the function 
     total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations = locate_nodes(path)
 
-    new_array= []
+    new_array_just_edges= []
     trimmed = []
 
     graph = skeleton_to_graph(path)
@@ -44,11 +35,11 @@ def trim_edges(path,weight_threshold):
                 plt.plot(ps[:,1], ps[:,0], 'green')
             else:
                 # print('nah leave em be')
-                new_array.append(graph[s][e]['pts'])
+                new_array_just_edges.append(graph[s][e]['pts'])
                 plt.plot(ps[:,1], ps[:,0], 'red')
         else:
             # print("no matches")
-            new_array.append(graph[s][e]['pts'])
+            new_array_just_edges.append(graph[s][e]['pts'])
             plt.plot(ps[:,1], ps[:,0], 'red')
 
     plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
@@ -67,9 +58,9 @@ def trim_edges(path,weight_threshold):
 
     # ---------------- get trimmed skeleton 
     new_image = black_image
-    for edge in new_array:
+    for edge in new_array_just_edges:
         for point in edge:
             # print(point[0], point[1])
             new_image[point[0]][point[1]] = 255
     
-    return new_array , new_image
+    return new_array_just_edges , new_image

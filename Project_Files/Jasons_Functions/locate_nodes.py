@@ -4,7 +4,7 @@ import cv2
 
 def locate_nodes(path_to_image):
 #read 3D rbg image as 2D greyscale nparray
-    print("\n\nfrom locate_nodes:\nbe sure you are pathing to a skeleton for locate_nodes")
+    # print("\n\nfrom locate_nodes:\nbe sure you are pathing to a skeleton for locate_nodes")
     blobs = cv2.imread(cv2.samples.findFile(path_to_image),0) 
     # last parameter 0 = greyscale 1 = color -1 = unchanged 
 
@@ -12,7 +12,7 @@ def locate_nodes(path_to_image):
     blobs = blobs > 127 
     #blobs is now a (540,960) 2 D array
 
-    print("(ydim , xdim) == ",blobs.shape)
+    # print("(ydim , xdim) == ",blobs.shape)
 
     ydim = blobs.shape[0] #num rows 540
     xdim = blobs.shape[1] #num columns 960
@@ -77,13 +77,13 @@ def locate_nodes(path_to_image):
     if sum_num_nodes + sum_num_edges + sum_num_endpoints + sum_num_islands == sum_points_length & len(total_skeleton) == sum_points_length:
         print("No errors detected")
     else:
-        print("f*&!")
+        print("f*&! something went wrong in locate nodes ")
 
     total_num_edgelines = total_num_edgelines / 2 #because each edge has two endpoints 
-    print("this skeleton has {0} edge lines, {1} nodes, {2} endpoints, and {3} islands. \nthe skeleton is of length {4} pixels.".format(total_num_edgelines , sum_num_nodes, sum_num_endpoints, sum_num_islands, sum_points_length))
+    # print("this skeleton has {0} edge lines, {1} nodes, {2} endpoints, and {3} islands. \nthe skeleton is of length {4} pixels.".format(total_num_edgelines , sum_num_nodes, sum_num_endpoints, sum_num_islands, sum_points_length))
 
-    print("the edgelines are of average length (in pixels) {0}, .".format( sum_num_edges / total_num_edgelines))
+    # print("the edgelines are of average length (in pixels) {0}, .".format( sum_num_edges / total_num_edgelines))
 
-    print("this function returns total_skeleton, nodes, edges, endpoints, and island's locations in (x,y) coordinate form\n\n\n")
+    # print("this function returns total_skeleton, nodes, edges, endpoints, and island's locations in (x,y) coordinate form\n\n\n")
     return total_skeleton,node_locations,edge_locations,endpoint_locations,island_locations
 

@@ -18,6 +18,19 @@ from open_or_show_image import * # image = open_image(path) , show_image(image)
 
 
 def inverse_skeletonize(path, weight_threshold):
+    """takes in path to image and weight threshold to trim from 
+        
+    :param path: path to image
+    :type path: string
+    :param weight_threshold: number of pix to 
+    :type option: int
+    :param num: number of erosions and dilations respectively 
+    :type num: int
+    
+    :rtype: integer np array of image , name of image that was written to file
+    :return: image array and the name of the image file for finding it later 
+    """
+    
     # -------------- get background of correct size
     image = open_image(path) #numpy.ndarray (403,341) ->  (y,x) each y,x point has a value 225 or 0 
     black_image = np.zeros((image.shape[0],image.shape[1])) # get black background 

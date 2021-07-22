@@ -1,51 +1,16 @@
-
-
-from re import search
-from threading import local
-import cv2
 import numpy as np
+from matplotlib.path import Path
 
 import sys
 
-from numpy.lib.function_base import diff
 sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from drawline import * 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
 from open_or_show_image import *
 from find_line_segment_intersection import *
-from matplotlib.path import Path
-
-def get_negative_image(image):
-    """takes in image and returns the negative of it 
-        
-    :param image: integer array of image
-    :type image: integer array
-    
-    :rtype: integer array
-    :return:  negative of image integer array
-    """
-    image = (255 - image)
-    return image
-
-
-
-def find_nearest_white(img, target):
-    """takes in image and target pixel and calculates closes white pixel to target
-        
-    :param img: integer array of image
-    :type img: integer array
-    :param target: coordinates of target pixel
-    :type target: integer np array
-    
-    :rtype: float
-    :return: distance between target and nearest white pixel
-    """
-    nonzero = np.argwhere(img == 255)
-    distances = np.sqrt((nonzero[:,0] - target[0]) ** 2 + (nonzero[:,1] - target[1]) ** 2)
-    nearest_index = np.argmin(distances)
-    return nonzero[nearest_index]
-
+from get_negative_image import *
+from find_nearest_white import *
 
 
 def zig_zag_partial(start_point,end_point,boundary_image, new_image, i ): #zigzagsize will scale the size of the zig zags
@@ -90,10 +55,6 @@ def zig_zag_partial(start_point,end_point,boundary_image, new_image, i ): #zigza
     bottom_side = [(boundary_image.shape[0] ,boundary_image.shape[1] ) , (boundary_image.shape[0] ,0) ]
     right_side  = [(0 ,boundary_image.shape[1] ) , (boundary_image.shape[0] ,boundary_image.shape[1])]
     left_side   = [(boundary_image.shape[0],0) , (0,0)]
-    # top_side    = [(1,1) , (1,boundary_image.shape[1] -1 )]
-    # bottom_side = [(boundary_image.shape[0] -1,boundary_image.shape[1] -1) , (boundary_image.shape[0]-1 ,1) ]
-    # right_side  = [(1 ,boundary_image.shape[1] - 1) , (boundary_image.shape[0]-1,boundary_image.shape[1]-1)]
-    # left_side   = [(boundary_image.shape[0]-1,1) , (1,1)]
     
     #define perpendiculat start and endpoint lines 
     start_point_perpendicular_line = [ start_point, start_point + out_of_bounds_scalar ]
@@ -137,7 +98,20 @@ def zig_zag_partial(start_point,end_point,boundary_image, new_image, i ): #zigza
                 mask = np.delete(mask,-1,0)
     
     #------------------------ combine information from boundary image with search zone of mask
-    negative_image = get_negative_image( boundary_image)
+    negative_image = get_negative_image( boundary_image) #black on white -> white on black
+    #add borders
+    for side in sides_list:
+        negative_image = drawline(np.array(side[0]),np.array(side[1]),negative_image)
+    
+    # add extra buffer ? 
+    top_side    = [(1,1) , (1,boundary_image.shape[1] -1 )]
+    bottom_side = [(boundary_image.shape[0] -1,boundary_image.shape[1] -1) , (boundary_image.shape[0]-1 ,1) ]
+    right_side  = [(1 ,boundary_image.shape[1] - 1) , (boundary_image.shape[0]-1,boundary_image.shape[1]-1)]
+    left_side   = [(boundary_image.shape[0]-1,1) , (1,1)]
+    
+    sides_list = [top_side,bottom_side,right_side,left_side]
+    for side in sides_list:
+        negative_image = drawline(np.array(side[0]),np.array(side[1]),negative_image)
     
     mask = mask *255 #convert mask to integer array
     
