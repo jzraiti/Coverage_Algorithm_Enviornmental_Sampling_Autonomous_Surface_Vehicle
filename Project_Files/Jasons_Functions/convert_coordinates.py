@@ -152,12 +152,18 @@ def convert_latlong_to_xy(LONG, LAT, config_file):
     print(' LONG, LAT: ', LONG, LAT)
     print(' upper LONGG, LAT: ', upper_long_lat[0], upper_long_lat[1])
     ''''''''''''''''''''''''''
+    
+    # xtemp = (- LONG + upper_long_lat[0])
+    # ytemp =  (- LAT + upper_long_lat[1])
+    # print("x long diff : ", xtemp )
+    # print("y lat diff : ", ytemp )
+
 
     x_coord = (- LONG + upper_long_lat[0]) / resolution[0] # x resoltion #TODO: can replace resolution with dictionry and lookup for resolution['x']
     y_coord = (- LAT + upper_long_lat[1]) / resolution[1] # y_resoltuon
 
     xy_coordinates = (int((x_coord)), int((y_coord)))
-    return xy_coordinates
+    return xy_coordinates 
 
 #NOTE: cartesaian coordiantes not image
 def convert_latlong_to_xy_version2(LONG, LAT, config_file):

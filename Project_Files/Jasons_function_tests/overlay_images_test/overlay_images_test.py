@@ -20,4 +20,4 @@ make_negative_2 = True
 new_image = overlay_images (image1,image2,make_negative_1, make_negative_2)
 
 show_image(new_image)
-cv2.imwrite('test_all_boundaries.png', new_image )
+cv2.imwrite('test_all_boundaries.png', new_image*255 )
