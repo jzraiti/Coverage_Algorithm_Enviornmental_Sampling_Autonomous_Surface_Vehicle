@@ -30,7 +30,7 @@ def erosion_dilation_from_array(image,option,num_erosions,num_dilations):
     """
     e_d_image = image 
     # Creating kernel
-    kernel = np.ones((2, 2), np.uint8) 
+    kernel = np.ones((3, 3), np.uint8) 
     if option == 1 : 
         e_d_image = cv2.erode( e_d_image, kernel, iterations=num_erosions ) 
         e_d_image = cv2.dilate( e_d_image, kernel, iterations=num_dilations ) 

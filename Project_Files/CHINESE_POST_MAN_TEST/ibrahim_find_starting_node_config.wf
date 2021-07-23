@@ -1,0 +1,17 @@
+World: e_d_image4.png
+
+Upper Left Latitude: 34.0451
+Upper Left Longitude: -81.25002
+Bottom Right Latitude: 34.0222
+Bottom Right Longitude: -81.22169
+
+# --- Sensor location -----#
+Start Point LAT: 34.02675 
+Start Point LONG: -81.2253
+
+Image Width: 329
+Image Height: 322
+
+-----
+sensor width: 12 meter #keep but this will be tweaked later
+turn radius: 5 meter
