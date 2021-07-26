@@ -5,7 +5,7 @@ from zig_zag_full_image_2 import *
 
 from open_or_show_image import * 
 
-path_to_skeleton = r'./pipelines/zig_zag_skeleton.png' 
+path_to_skeleton = r'./pipeline_Jul23/zig_zag_skeleton.png' 
 
 path_to_boundary_image = r'./Zig_zag_full_image_test_2/test_all_boundaries.png'
 

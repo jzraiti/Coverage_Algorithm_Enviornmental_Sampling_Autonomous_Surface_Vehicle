@@ -55,5 +55,5 @@ def zig_zag_full_image_2 ( path_to_skeleton, path_to_boundary_image, zig_zag_wid
             # new_image = drawline(start_point,end_point,new_image) # draws line between beginning and ending
             image,new_boundary_image = zig_zag_partial_2(  start_point  ,  end_point  , new_boundary_image , new_image , i , zig_zag_threshold)
             # show_image(new_boundary_image)
-            # show_image(image)
+            show_image(image)
     return image

@@ -133,7 +133,7 @@ def zig_zag_partial_2(start_point,end_point,boundary_image, new_image, i , zig_z
             if negative_image[col][row] > 0 and negative_image[col][row] == mask[col][row]:
                 search_zone[col][row] = 255
 
-    # show_image(search_zone) 
+    show_image(search_zone) 
 
     # ----------------- find nearest white image! 
     a = find_nearest_white( search_zone, end_point) #find nearest object in search zone  
