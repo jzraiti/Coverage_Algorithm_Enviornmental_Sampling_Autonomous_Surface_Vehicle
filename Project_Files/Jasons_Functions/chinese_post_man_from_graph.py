@@ -1,7 +1,7 @@
 import sys
 sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
-from find_starting_node import *
+from find_starting_node_from_graph import *
 
 
 from open_or_show_image import * 
@@ -13,11 +13,11 @@ from postman_problems.stats import calculate_postman_solution_stats
 # PRAISE BE TO https://github.com/brooksandrew/postman_problems#python
 
 
-def chinese_post_man(path,config_file,launch_point, path_to_csv):
+def chinese_post_man_from_graph(graph,config_file,launch_point, path_to_csv):
     """finds best path across skeleton, returning to launch point
     
-    :param path_to_skel: path to image  of full zig zag
-    :type path_to_skel: string
+    :param graph: graph of full zig zag
+    :type graph: networkx graph
     :param config: file containing essential information about area of operation such as coordinates
     :type config: text file 
     :param launch point: estimated coordinates (lat long) of launching point
@@ -29,7 +29,7 @@ def chinese_post_man(path,config_file,launch_point, path_to_csv):
     :return: the path to follow along the skeleton 
     """
     #find start node 
-    starting_node, starting_node_xy = find_starting_node(path, config_file, launch_point )
+    starting_node, starting_node_xy = find_starting_node_from_graph(graph, config_file, launch_point )
 
     #calculate best path
     circuit, graph = cpp(edgelist_filename= str(path_to_csv), start_node=str(starting_node))

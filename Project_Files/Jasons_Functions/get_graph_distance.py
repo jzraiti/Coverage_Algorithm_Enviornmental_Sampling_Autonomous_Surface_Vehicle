@@ -16,5 +16,5 @@ def get_graph_distance(waypoint1,waypoint2,path):
         weight_sum = weight_sum + weight
     total_distance = weight_sum * unit_distance
     print("\n\ntotal distance of graph at ", path, " \n\n(in meters) is" ,total_distance)
-    return total_distance
+    return total_distance, weight_sum , unit_distance
 

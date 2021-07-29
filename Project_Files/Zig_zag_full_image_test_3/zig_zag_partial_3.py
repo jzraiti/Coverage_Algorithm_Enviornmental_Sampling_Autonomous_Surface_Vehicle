@@ -12,8 +12,52 @@ from find_line_segment_intersection import *
 from get_negative_image import *
 from find_nearest_white import *
 
+#from https://stackoverflow.com/questions/25837544/get-all-points-of-a-straight-line-in-python
+def get_line(x1, y1, x2, y2):
+    x1 = int(x1)
+    y1 = int(y1)
+    x2 = int(x2)
+    y2 = int(y2)
+    points = []
+    issteep = abs(y2-y1) > abs(x2-x1)
+    if issteep:
+        x1, y1 = y1, x1
+        x2, y2 = y2, x2
+    rev = False
+    if x1 > x2:
+        x1, x2 = x2, x1
+        y1, y2 = y2, y1
+        rev = True
+    deltax = x2 - x1
+    deltay = abs(y2-y1)
+    error = int(deltax / 2)
+    y = y1
+    ystep = None
+    if y1 < y2:
+        ystep = 1
+    else:
+        ystep = -1
+    for x in range(x1, x2 + 1):
+        if issteep:
+            points.append((y, x))
+        else:
+            points.append((x, y))
+        error -= deltay
+        if error < 0:
+            y += ystep
+            error += deltax
+    # Reverse the list if the coordinates were reversed
+    if rev:
+        points.reverse()
+    
+    # if len(points):
+    #     print("this is good")
+    # else:
+    #     print("this is not good ")
+    
+    return points
 
-def zig_zag_partial_2(start_point,end_point,boundary_image, new_image, i , zig_zag_threshold ): #zigzagsize will scale the size of the zig zags
+def zig_zag_partial_3(start_point,end_point,boundary_image, new_image, i , zig_zag_threshold ): #zigzagsize will scale the size of the zig zags
     """makes a zig zag on alternating sides between starting point and end point and avoiding boundaries marked in boundary image
     
     :param start_point: coordinates of starting point
@@ -148,17 +192,18 @@ def zig_zag_partial_2(start_point,end_point,boundary_image, new_image, i , zig_z
     else: dist = distc
     # dist = np.linalg.norm(a-b) #this   calculates euclidean  between two points 
     
-    print('distance is :', dist)
+    # print('distance is :', dist)
     
     zig_zag_size_vector = normalized_slope_vector * int(dist) # make the zig zag only as far as the closest boundary 
 
-    if dist <= 0: 
-        print("warning: point at ", b , "distance from nearest boundary is ", dist , '\n')
+    # if dist <= 0: 
+    #     print("warning: point at ", b , "distance from nearest boundary is ", dist , '\n')
 
     # ----------------------- below the actual zig zags happen 
     zig_zag_boundary_image =  get_negative_image(boundary_image)
     zig_zag_image = new_image
     
+    line_array = [] #array to store points on the line
     
     if abs(dist) <= zig_zag_threshold:
         try : 
@@ -168,6 +213,13 @@ def zig_zag_partial_2(start_point,end_point,boundary_image, new_image, i , zig_z
             zig_zag_boundary_image = drawline(start_point,end_point,zig_zag_boundary_image) # just draw a line startpoint to endpoint
             # boundary_image = get_negative_image(boundary_image) #temporarily convert take negative - in future can just change drawline function 
         except : print("error zigging")
+
+        line_array = get_line(start_point[0], start_point[1] , end_point[0] , end_point[1] )
+        # if len(line_array):
+        #     print("this is good")
+        # else:
+        #     print("this is not good ")
+
     elif abs(dist) > zig_zag_threshold:
         
         
@@ -190,9 +242,23 @@ def zig_zag_partial_2(start_point,end_point,boundary_image, new_image, i , zig_z
             zig_zag_boundary_image = drawline(pt2,pt3,zig_zag_boundary_image) # zig zag on boundary
             # zig_zag_boundary_image = get_negative_image(boundary_image) #temporarily convert take negative - in future can just change drawline function 
         except : print("error zigging bound")
+    
+        line_1 = get_line(pt1[0], pt1[1] , pt2[0] , pt2[1] )
+        line_2 = get_line(pt2[0], pt2[1] , pt3[0] , pt3[1] )
+        # line_array = line_1 + line_2 # zig zagged line array
+        line_array.extend(line_1)
+        line_array.extend(line_2) # zig zagged line array
+        # if len(line_1):
+        #     print("this is good")
+        # else:
+        #     print("this is not good ")
+        # if len(line_2):
+        #     print("this is good")
+        # else:
+        #     print("this is not good ")
 
     zig_zag_boundary_image = get_negative_image(zig_zag_boundary_image)
     # show_image(boundary_image)
     # return(new_image,boundary_image)
     # print(boundary_image[0])
-    return(zig_zag_image,zig_zag_boundary_image)  
+    return(zig_zag_image, zig_zag_boundary_image, line_array)  

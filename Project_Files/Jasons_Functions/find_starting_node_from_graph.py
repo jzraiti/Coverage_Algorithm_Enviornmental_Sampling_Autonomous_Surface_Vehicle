@@ -14,11 +14,11 @@ from open_or_show_image import *
 import networkx as nx
 
 
-def find_starting_node(path, config_file, launch_point ):
+def find_starting_node_from_graph(graph, config_file, launch_point ):
     """finds best starting point
     
-    :param path: path to image of original skeleton
-    :type path: string
+    :param graph: graph of original skeleton
+    :type path: networkx graph
     :param config: file containing essential information about area of operation such as coordinates
     :type config: text file 
     :param launch point: estimated coordinates (lat long) of launching point
@@ -27,12 +27,6 @@ def find_starting_node(path, config_file, launch_point ):
     :rtype: int , int array coordinates
     :return: starting node number , coordinates 
     """
-    
-    # ---- get useful info 
-    image = open_image(path)
-
-    graph = skeleton_to_graph_from_array(image)
-
     # --- calculate launch poing 
         # '''convert_latlong_to_xy
         # Input: LONG LAT and config file !!!!!!!!!!!!!!!!!!!!!!!!!1 LONG LAT I SAY 
@@ -91,7 +85,7 @@ def find_starting_node(path, config_file, launch_point ):
         plt.plot(ps[:,1], ps[:,0], 'green')
         
 
-    plt.imshow(image)
+    # plt.imshow(image)
     plt.show()
     return starting_node, starting_node_xy
 
