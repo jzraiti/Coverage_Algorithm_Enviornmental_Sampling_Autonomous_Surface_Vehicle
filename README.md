@@ -25,9 +25,13 @@ This algorithm uses skeletonization and a modified boustrophedon method to cover
         - mission file for use by jetyak
     - zigzag_full 
         - image of the path to be taken
+    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_july27/zigzag_full.png?raw=true )
+
 
 #### To create a circular path around skeleton:
 modify the script in Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30
+    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/e_d_image.png?raw=true )
+    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/pixelremoved_thinned_circle_skeleton.png?raw=true )
 
 
 
