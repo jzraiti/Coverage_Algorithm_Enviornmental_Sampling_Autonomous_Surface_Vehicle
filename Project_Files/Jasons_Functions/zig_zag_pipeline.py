@@ -199,7 +199,10 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
     max_distance,mean_distance,points_sum,distance_sum,distance_graph = find_coverage_metrics_from_array (boundary,zig_zag)
 
     print("coverage metrics: \n max distance: ", max_distance,"mean distance: ", mean_distance)
-    # show_image(distance_graph)
+    plt.imshow(distance_graph, cmap=plt.cm.jet)
+    plt.savefig("heatmap.png")
+    plt.show()
+
 
     #create file of x,y coordinate points in the order of cpp -----------------------------------------------------------------------------
 

@@ -25,17 +25,44 @@ This algorithm uses skeletonization and a modified boustrophedon method to cover
         - mission file for use by jetyak
     - zigzag_full 
         - image of the path to be taken
-    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_july27/zigzag_full.png?raw=true )
+        - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_july27/zigzag_full.png?raw=true )
     - metrics about your path:
         -  coverage metrics: 
             -  max distance:  69.87131027825369
             -  mean distance:  7.5632924271105475
         -  total distance (meters) (without return path):  6891.998172156519
-#### To create a circular path around skeleton:
-modify the script in Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30
-    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/e_d_image.png?raw=true )
-    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/pixelremoved_thinned_circle_skeleton.png?raw=true )
+    -  heatmap of coverage:
+        - ![Alt text](Project_Files/Jupyter_pipelines/Pipeline_july27/heatmap.png?raw=true )
 
+#### To create a circular path around skeleton:
+    
+    
+    
+1. take an satellite image of an operation area
+    - ![Alt text](Project_Files/MAPS/Map_originals/Ibrahim_Test/ibrahim_test.png?raw=true "Lake Murray - Ibrahim test area")
+2. manually threshold the image so that the navigable water is white and the boundary is black
+    - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/e_d_image.png?raw=true )
+3. create config file in the proper format
+    - see : Project_Files/MAPS/Map_originals/Ibrahim_Test/Ibrahim_test_config.wf
+4. locate the latitude and longitude of your launch point
+    - Jakes landing for this example: (34.02675, -81.2253)
+5. modify the script in Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30
+    - there are some manual steps here as well so be sure to go through the process carefully
+6. Outputs you will get:
+    - coordinates_waypoints.csv
+        - waypoints in order of travel
+    - coordinates_waypoints.txt
+        - mission file for use by jetyak
+    - circle path
+        - image of the path to be taken
+        - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/pixelremoved_thinned_circle_skeleton.png?raw=true )
+    - metrics about your path:
+        -  coverage metrics: 
+            -  max distance:  112.43220179290273 
+            -  mean distance:  18.071144822260045
+        -  total distance (in meters) is 2621.7881283939296
+    -  heatmap of coverage:
+        - ![Alt text](Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30/heatmap.png?raw=true )
 
 
 ## Parameters that can be tweaked inside of the code:
