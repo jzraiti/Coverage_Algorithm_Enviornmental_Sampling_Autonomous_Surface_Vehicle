@@ -1,5 +1,5 @@
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from skeleton_to_graph_from_array import * 
 

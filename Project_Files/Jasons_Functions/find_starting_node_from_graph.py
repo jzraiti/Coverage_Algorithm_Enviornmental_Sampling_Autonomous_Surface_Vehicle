@@ -1,7 +1,7 @@
 import numpy as np
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from convert_coordinates import *
 

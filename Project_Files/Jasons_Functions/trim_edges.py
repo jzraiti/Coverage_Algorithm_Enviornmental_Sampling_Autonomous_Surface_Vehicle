@@ -2,8 +2,8 @@
 
 import matplotlib.pyplot as plt
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
 from open_or_show_image import * # image = open_image(path) , show_image(image)
@@ -51,7 +51,7 @@ def trim_edges(path,weight_threshold):
             new_array.append(graph[s][e]['pts'])
             plt.plot(ps[:,1], ps[:,0], 'red')
 
-    plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
+    # plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
 
     # name = 'trimmed_' + str(path)
     # name = name.replace("/", "_")
@@ -59,7 +59,7 @@ def trim_edges(path,weight_threshold):
     # name = str(name) + '.png' 
     # plt.savefig(name, format="png")
     
-    plt.show()
+    # plt.show()
 
 
     # ------- make new "image array" that can be written using cv2 -----

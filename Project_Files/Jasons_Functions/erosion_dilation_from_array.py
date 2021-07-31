@@ -18,8 +18,8 @@ from open_or_show_image import *
 def erosion_dilation_from_array(image,option,num_erosions,num_dilations):
     """takes in two np array points and an image to draw on, spits out the image with a line between points 
         
-    :param image: image array of thing you want eroded / dialated
-    :type image: string
+    :param image: image array of thing you want eroded np.uint8 / dialated
+    :type image: np.uint8 array
     :param option: 1=dialate first or 2=erode first  
     :type option: int
     :param num: number of erosions and dilations respectively 
@@ -28,6 +28,7 @@ def erosion_dilation_from_array(image,option,num_erosions,num_dilations):
     :rtype: integer np array of image 
     :return: image array and the name 
     """
+    # Note : " needs data type:  np.uint8"
     e_d_image = image 
     # Creating kernel
     kernel = np.ones((3, 3), np.uint8) 

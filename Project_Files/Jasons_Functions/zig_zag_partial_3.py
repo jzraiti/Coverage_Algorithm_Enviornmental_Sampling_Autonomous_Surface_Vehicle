@@ -1,9 +1,9 @@
 import numpy as np
 from matplotlib.path import Path
 
-import sys
+# import sys
 
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from drawline import * 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
@@ -14,6 +14,9 @@ from find_nearest_white import *
 
 #from https://stackoverflow.com/questions/25837544/get-all-points-of-a-straight-line-in-python
 def get_line(x1, y1, x2, y2):
+    """
+    Get all points along the line between pt1 x1,y1 and x2,y2
+    """
     x1 = int(x1)
     y1 = int(y1)
     x2 = int(x2)
@@ -49,12 +52,6 @@ def get_line(x1, y1, x2, y2):
     # Reverse the list if the coordinates were reversed
     if rev:
         points.reverse()
-    
-    # if len(points):
-    #     print("this is good")
-    # else:
-    #     print("this is not good ")
-    
     return points
 
 def zig_zag_partial_3(start_point,end_point,boundary_image, new_image, i , zig_zag_threshold ): #zigzagsize will scale the size of the zig zags
@@ -71,8 +68,8 @@ def zig_zag_partial_3(start_point,end_point,boundary_image, new_image, i , zig_z
     :param i: determines direction of zig_zag, even or odd
     :type i: integer 
     
-    :rtype: integer array of image
-    :return: black image of one zig zag 
+    :rtype: integer array of entire image , array of points on line (coord int) of zig zag
+    :return: black image of one zig zag , overlay image + one zig zag, array of points added to zig zag 
     """
     
     dim1 = boundary_image.shape[0] # will use this dimension value sporadically sorry

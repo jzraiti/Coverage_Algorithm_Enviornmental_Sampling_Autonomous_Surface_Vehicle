@@ -1,8 +1,8 @@
 import cv2 
 import numpy as np
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from zig_zag_partial_2 import * #inputs: start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i
 from skeleton_to_graph import * 

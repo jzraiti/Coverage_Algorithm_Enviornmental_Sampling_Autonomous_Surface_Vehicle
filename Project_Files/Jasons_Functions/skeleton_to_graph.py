@@ -25,6 +25,6 @@ def skeleton_to_graph(path):
     img = img > 127 #make bool 
     ske = skeletonize(~img).astype(np.uint16) # this just changes data type and SHOULDNT change skeleton shape
     graph = sknw.build_sknw(ske) # build graph from skeleton
-    print("\nskeleton converted to graph\n")
+    # print("\nskeleton converted to graph\n")
     return graph
 

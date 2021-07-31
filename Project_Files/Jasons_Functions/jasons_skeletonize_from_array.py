@@ -12,7 +12,15 @@ from skimage.morphology import thin
 
 
 def jasons_skeletonize_from_array(image):
-
+    """takes array of thresholded bw image, skeletonizes
+    
+    :param path: path to image
+    :type path: string
+    
+    :rtype: skeleton image arrays
+    :return: med_axis , skeleton , skeleton_lee , thinned , thinned_partial
+    """
+    
     #convert data from int to np bool 
     blobs = image > 123 # BIGNOTE: this is made for skeletonization when the white area is the desired area for skeletonization
 

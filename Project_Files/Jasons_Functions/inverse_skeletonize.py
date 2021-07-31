@@ -1,8 +1,8 @@
 import numpy as np
 import cv2 
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from erosion_dilation import * 
 
@@ -45,7 +45,7 @@ def inverse_skeletonize(path, weight_threshold):
         for point in edge:
             white_image[point[0]][point[1]] = 0
             
-    show_image(white_image) # this is the inverse of thinned skel
+    # show_image(white_image) # this is the inverse of thinned skel
 
     cv2.imwrite('negative_skeleton.png', white_image)
     #--------------------------------------------------- do erosion and dilation

@@ -3,16 +3,16 @@ import cv2
 #Jasons script for gathering data directly from image of skeleton, specifically finding nodes
 
 def locate_nodes(path_to_image):
-#read 3D rbg image as 2D greyscale nparray
-    # print("\n\nfrom locate_nodes:\nbe sure you are pathing to a skeleton for locate_nodes")
+    '''
+    Old manual function to try and locate the main features of a skeleton:
+    Takes in path to image, outputs node locations and other information, though test it before using
+    There have been edge cases where this function breaks which is why I have largly avoided using it except in trim edges
+    (which I could probably change)
+    '''
     blobs = cv2.imread(cv2.samples.findFile(path_to_image),0) 
-    # last parameter 0 = greyscale 1 = color -1 = unchanged 
 
     #convert data from int to np bool 
     blobs = blobs > 127 
-    #blobs is now a (540,960) 2 D array
-
-    # print("(ydim , xdim) == ",blobs.shape)
 
     ydim = blobs.shape[0] #num rows 540
     xdim = blobs.shape[1] #num columns 960

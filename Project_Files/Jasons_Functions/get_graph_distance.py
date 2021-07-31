@@ -1,9 +1,15 @@
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 from skeleton_to_graph import *
 from generate_waypoints import *
 
 def get_graph_distance(waypoint1,waypoint2,path):
+    '''
+    gets the total distance of the graph in meters
+    
+    could be streamlined by just making waypoint 1 and 2 (0,0) and (0,1)
+    '''
+    
     print("\nfrom generate_waypoints: be sure that waypoint 1 and 2 are adjacent aka have either same longitude or latitude \n")
     #notes: csv file can be uploaded to google maps to find (on my maps ), you can edit as a layer
     

@@ -12,6 +12,15 @@ from skimage.morphology import thin
 
 
 def jasons_skeletonize(path):
+    """takes in path to thresholded bw image, skeletonizes,and saves skeletons as image files 
+    
+    :param path: path to image
+    :type path: string
+    
+    :rtype: skeleton image arrays, the naming conventions, and list of names/paths
+    :return: med_axis , skeleton , skeleton_lee , thinned , thinned_partial , name , paths_list
+    """
+    
     #read 3D rbg image as 2D greyscale nparray
     blobs = cv.imread(cv.samples.findFile(path),0) 
     # last parameter 0 = greyscale 1 = color -1 = unchanged 
@@ -52,10 +61,4 @@ def jasons_skeletonize(path):
     
     paths_list = [name + '_medial_axis.png' , name + '_skeleton.png' ,   name + '_skeleton_lee94.png' , name + '_thinned.png' ,  name + '_thinned_partial.png'   ]
     return med_axis , skeleton , skeleton_lee , thinned , thinned_partial , name , paths_list
-
-
-
-# path = r'./MAPS/Map_originals/Ibrahim_Test/ibrahim_test_bw.png'
-# Jasons_skeletonize(path)
-
 

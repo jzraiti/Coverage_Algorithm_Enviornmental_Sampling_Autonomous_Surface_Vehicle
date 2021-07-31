@@ -29,6 +29,6 @@ def skeleton_to_graph_from_array(image):
     
     ske = skeletonize(~image).astype(np.uint16) # this just changes data type and SHOULDNT change skeleton shape
     graph = sknw.build_sknw(ske) # build graph from skeleton
-    print("\nskeleton converted to graph\n")
+    # print("\nskeleton converted to graph\n")
     return graph
 

@@ -1,7 +1,7 @@
 import cv2 
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from jasons_skeletonize_from_array import * 
 
@@ -28,18 +28,18 @@ from find_nearest_white import *
 import numpy as np
 
 def find_coverage_metrics (boundary_path,zig_zag_path):
+    '''
+    inputs : boundary image, zig zag skeleton image
+    outputs : useful metrics : mean distance to sampled point, max distance from sampled point 
 
-    #inputs : boundary image, zig zag skeleton image
-    # outputs : useful metrics : mean distance to sampled point, max distance from sampled point 
-
-    # for point on boundary image -not boundary- 
-        # find nearest point on skeleton image
-        #calculate distance
-        # if distance is > max distance save as max distance
-        #distance sum = distance sum + distance
+    for point on boundary image -not boundary- 
+        find nearest point on skeleton image
+        calculate distance
+        if distance is > max distance save as max distance
+        distance sum = distance sum + distance
         
-    #return distance sum, max distance
-
+    return max_distance,mean_distance,points_sum,distance_sum,distance_graph
+    '''
     # boundary_path = r'./Pipeline_july27/e_d_image.png'
     # zig_zag_path = r'./Pipeline_july27/zigzag_full.png'
     boundary = open_image(boundary_path)

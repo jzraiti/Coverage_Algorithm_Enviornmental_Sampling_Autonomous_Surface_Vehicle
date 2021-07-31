@@ -2,8 +2,8 @@
 import numpy as np
 import cv2
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from open_or_show_image import *
 from get_negative_image import *

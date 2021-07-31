@@ -1,7 +1,7 @@
 import cv2 
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from jasons_skeletonize_from_array import * 
 
@@ -28,25 +28,18 @@ from find_nearest_white import *
 import numpy as np
 
 def find_coverage_metrics_from_array (boundary,zig_zag):
-        #inputs : boundary image, zig zag skeleton image
-    # outputs : useful metrics : mean distance to sampled point, max distance from sampled point 
+    '''
+    inputs : boundary image array, zig zag skeleton image
+    outputs : useful metrics : mean distance to sampled point, max distance from sampled point 
 
-    # for point on boundary image -not boundary- 
-        # find nearest point on skeleton image
-        #calculate distance
-        # if distance is > max distance save as max distance
-        #distance sum = distance sum + distance
+    for point on boundary image -not boundary- 
+        find nearest point on skeleton image
+        calculate distance
+        if distance is > max distance save as max distance
+        distance sum = distance sum + distance
         
-    #return distance sum, max distance
-    
-    # boundary_path = r'./Pipeline_july27/e_d_image.png'
-    # zig_zag_path = r'./Pipeline_july27/zigzag_full.png'
-    # boundary = open_image(boundary_path)
-    # zig_zag = open_image(zig_zag_path) 
-    # show_image(zig_zag)
-    # print(zig_zag)
-    # zig_zag_graph = skeleton_to_graph_from_array(zig_zag)
-
+    return max_distance,mean_distance,points_sum,distance_sum,distance_graph
+    '''
     # print (boundary.shape)
     distance_graph = boundary # to save the distances at each point
     max_distance = 0

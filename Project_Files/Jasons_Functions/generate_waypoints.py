@@ -32,7 +32,7 @@ def generate_waypoints(input_xy_coord_file, config_file, option="m"):
     mission_file_name = os.path.splitext(input_xy_coord_file)[0] + '_waypoints.txt'
     if option == "c":
         mission_file_name = os.path.splitext(input_xy_coord_file)[0] + '_waypoints.csv'
-    print(mission_file_name)
+    # print(mission_file_name)
     mission_file = open(mission_file_name, "w")
 
     if option == "c":

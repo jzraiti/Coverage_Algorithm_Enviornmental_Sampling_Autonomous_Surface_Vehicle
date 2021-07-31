@@ -1,8 +1,8 @@
 import cv2 
 import numpy as np
 
-import sys
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# import sys
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from zig_zag_partial_3 import * #inputs: start_point,end_point,zig_zag_size,zig_zag_image,boundary_image, i
 from skeleton_to_graph import * 
@@ -18,8 +18,8 @@ def zig_zag_full_image_3 ( path_to_skeleton, path_to_boundary_image, zig_zag_wid
     :param: desired zig_zag_width (in pixels)
     :type: int
     
-    :rtype: integer numpy array
-    :return:  a black background white forground image of just the zig zag path (full)
+    :rtype: integer numpy array , dict { (tuple coord y,x) : [points] }
+    :return:  a black background white forground image of just the zig zag path (full) and dictionary of edges and points 
     """
     #start by converting skel to graph and boundary image 
     graph = skeleton_to_graph(path_to_skeleton)

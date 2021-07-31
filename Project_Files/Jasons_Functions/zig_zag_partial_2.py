@@ -1,9 +1,9 @@
 import numpy as np
 from matplotlib.path import Path
 
-import sys
+# import sys
 
-sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
+# sys.path.append("/home/jasonraiti/Documents/GitHub/USC_REU/Project_Files/Jasons_Functions/")
 
 from drawline import * 
 from skeleton_to_graph import * # graph = skeleton_to_graph(path)
