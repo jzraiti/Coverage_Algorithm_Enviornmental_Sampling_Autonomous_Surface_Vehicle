@@ -33,6 +33,7 @@ from generate_waypoints import *
 def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_long):
 # def zig_zag_pipeline():
     '''
+    inputs: path_to_bw_boundaries,path_to_config_file,launch_point_lat_long
     
     some arbitrary settings to pay attention to: 
     weight_threshold for trim_edges steps = 42
@@ -41,6 +42,7 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
     zig_zag_width (number of pixels in the base of each triangle)= 8
 
     
+        
     '''
     # erosion dilation -----------------------------------------------------------------------
     # WARNING : important edge case is when your skeleton has a loop in it, this may mess up all of the algorithms pretty bad 
