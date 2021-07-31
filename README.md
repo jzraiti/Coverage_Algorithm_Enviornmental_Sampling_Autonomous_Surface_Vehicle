@@ -9,7 +9,11 @@
 
 
 ## How to use this program:
+1. take an satellite image of an operation area
+    - ![Alt text](Project_Files/MAPS/Map_originals/Ibrahim_Test/ibrahim_test.png?raw=true "Lake Murray - Ibrahim test area")
+2. manually threshold the image so that the navigable water is white and the boundary is black
 
+### To create a circular path around the marine enviornment
 
 
 
