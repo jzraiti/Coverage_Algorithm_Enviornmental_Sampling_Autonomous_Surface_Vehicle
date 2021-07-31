@@ -25,11 +25,11 @@ zig_zag_width (number of pixels in the base of each triangle)= 8
 
 
 ## File Structure:
--Project files
-    -Jasons_function_tests: 
-        -*these are scripts that test the functions in jasons_functions*
-        -*the sys path will need to be modified for them to work, add path to jasons_functions*
-    -Jasons_Functions:
+- Project files
+    - Jasons_function_tests: 
+        - *these are scripts that test the functions in jasons_functions*
+        - *the sys path will need to be modified for them to work, add path to jasons_functions*
+    - Jasons_Functions:
         *these are all of the functions that are used by the program, or can be used by futureprograms, in each function there is a docstring explaining inputs and outputs and purpose*
         zig_zag_pipeline.py
             *this is the main function which will run the complete image to waypoints pipeline*
