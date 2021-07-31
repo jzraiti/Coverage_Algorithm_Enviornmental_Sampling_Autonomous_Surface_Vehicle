@@ -26,8 +26,11 @@ This algorithm uses skeletonization and a modified boustrophedon method to cover
     - zigzag_full 
         - image of the path to be taken
     - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_july27/zigzag_full.png?raw=true )
-
-
+    - metrics about your path:
+        -  coverage metrics: 
+            -  max distance:  69.87131027825369
+            -  mean distance:  7.5632924271105475
+        -  total distance (meters) (without return path):  6891.998172156519
 #### To create a circular path around skeleton:
 modify the script in Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30
     - ![Alt text](Project_Files/MAPS/Map_outputs/Ibrahim_test/Pipeline_Circle_Path_Jul30/e_d_image.png?raw=true )
