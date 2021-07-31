@@ -1,4 +1,7 @@
-# USC_REU
+# A Novel Algorithmic Coverage Method for Environment Sampling with an Autonomous Surface Vehicle
+
+## How to use this program:
+
 Code for USC REU program
 -change this to be about the coverage algorithm (zig-zag-lake-coverage blah) 
 -add the information about the team and the project
