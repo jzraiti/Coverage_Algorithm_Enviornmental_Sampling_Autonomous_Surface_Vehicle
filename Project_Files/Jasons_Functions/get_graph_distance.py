@@ -10,7 +10,7 @@ def get_graph_distance(waypoint1,waypoint2,path):
     could be streamlined by just making waypoint 1 and 2 (0,0) and (0,1)
     '''
     
-    print("\nfrom generate_waypoints: be sure that waypoint 1 and 2 are adjacent aka have either same longitude or latitude \n")
+    #  be sure that waypoint 1 and 2 are adjacent aka have either same longitude or latitude 
     #notes: csv file can be uploaded to google maps to find (on my maps ), you can edit as a layer
     
     unit_distance = find_distance(waypoint1,waypoint2)

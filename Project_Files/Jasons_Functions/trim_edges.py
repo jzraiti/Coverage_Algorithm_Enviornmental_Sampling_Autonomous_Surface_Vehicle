@@ -41,15 +41,15 @@ def trim_edges(path,weight_threshold):
                 
                 # print('trim this one')
                 trimmed.append(graph[s][e]['pts'])
-                plt.plot(ps[:,1], ps[:,0], 'green')
+                # plt.plot(ps[:,1], ps[:,0], 'green')
             else:
                 # print('nah leave em be')
                 new_array.append(graph[s][e]['pts'])
-                plt.plot(ps[:,1], ps[:,0], 'red')
+                # plt.plot(ps[:,1], ps[:,0], 'red')
         else:
             # print("no matches")
             new_array.append(graph[s][e]['pts'])
-            plt.plot(ps[:,1], ps[:,0], 'red')
+            # plt.plot(ps[:,1], ps[:,0], 'red')
 
     # plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
 

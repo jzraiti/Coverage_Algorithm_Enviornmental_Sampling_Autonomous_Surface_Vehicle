@@ -1,19 +1,33 @@
 # A Novel Algorithmic Coverage Method for Environment Sampling with an Autonomous Surface Vehicle
 
-
-
-
 ## What is this:
+A novel coverage/path-creation algorithm for marine enviornmental sampling using an Autonomous Surface Vehicle
 
-
-
+This algorithm uses skeletonization and a modified boustrophedon method to cover large areas and tight spaces equitably 
 
 ## How to use this program:
+
+#### To create zigzag from skeleton path:
+
 1. take an satellite image of an operation area
     - ![Alt text](Project_Files/MAPS/Map_originals/Ibrahim_Test/ibrahim_test.png?raw=true "Lake Murray - Ibrahim test area")
 2. manually threshold the image so that the navigable water is white and the boundary is black
+    - ![Alt text](Project_Files/MAPS/Map_originals/Ibrahim_Test/ibrahim_test_bw.png?raw=true )
+3. create config file in the proper format
+    - see : Project_Files/MAPS/Map_originals/Ibrahim_Test/Ibrahim_test_config.wf
+4. locate the latitude and longitude of your launch point
+    - Jakes landing for this example: (34.02675, -81.2253)
+5. Plug these values into Project_Files/zig_zag_pipeline_test.py
+6. Outputs you will get:
+    - coordinates_waypoints.csv
+        - waypoints in order of travel
+    - coordinates_waypoints.txt
+        - mission file for use by jetyak
+    - zigzag_full 
+        - image of the path to be taken
 
-### To create a circular path around the marine enviornment
+#### To create a circular path around skeleton:
+modify the script in Project_Files/Jupyter_pipelines/Pipeline_Circle_Path_Jul30
 
 
 
@@ -33,8 +47,7 @@
     - Jasons_function_tests: 
         - *these are scripts that test the functions in jasons_functions*
         - *the sys path will need to be modified for them to work, add path to jasons_functions*
-    - Jasons_Functions:
-        - *these are all of the functions that are used by the program, or can be used by futureprograms, in each function there is a docstring explaining inputs and outputs and purpose*
+    - Jasons_Functions: tring explaining inputs and outputs and purpose*
         - zig_zag_pipeline.py
             - *this is the main function which will run the complete image to waypoints pipeline*
     - Jasons_old_scripts:
@@ -46,6 +59,7 @@
             - *this creates a circlular path around the skeleton for ibrahim test area*
         - Pipeline_july27
             - *this creates a zig zag path for ibrahim test area*
+            - *total length of path (in meters) is 6891.998172156519, max distance:  69.87131027825369 , mean distance:  7.5632924271105475*
     - MAPS
         - Map_originals
             - *contains the starting data for various bodies of water*
@@ -79,3 +93,5 @@ automate the thresholding manual preprocessing step
 add function to create the config file for the user automatically
 
 add boustrophedon coverage method for comparison 
+
+make the reasource constraints a part of the inputs (time or distance to travel in meters)

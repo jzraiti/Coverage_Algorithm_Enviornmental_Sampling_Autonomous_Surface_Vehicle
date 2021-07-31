@@ -59,39 +59,39 @@ def find_starting_node(path, config_file, launch_point ):
 
     print("starting node, distance, xy: ", starting_node, distance, starting_node_xy)
 
-    #--- plot to check 
+    # #--- plot to check 
 
 
-    plt.figure()
-    #plot launch point 
-    plt.plot(launch_point[0],launch_point[1], 'r.')
+    # plt.figure()
+    # #plot launch point 
+    # plt.plot(launch_point[0],launch_point[1], 'r.')
     
-        # plt.plot(launch_point[0],launch_point[1], 'r.')
+    #     # plt.plot(launch_point[0],launch_point[1], 'r.')
 
     
-    plt.annotate("launch point", # this is the text
-                    (launch_point[0],launch_point[1]), # these are the coordinates to position the label
-                    textcoords="offset points", # how to position the text
-                    xytext=(0,10), # distance from text to points (x,y)
-                    ha='center') # horizontal alignment can be left, right or center
-    #plot starting node
-    plt.plot(starting_node_xy[0],starting_node_xy[1], 'r.')
+    # plt.annotate("launch point", # this is the text
+    #                 (launch_point[0],launch_point[1]), # these are the coordinates to position the label
+    #                 textcoords="offset points", # how to position the text
+    #                 xytext=(0,10), # distance from text to points (x,y)
+    #                 ha='center') # horizontal alignment can be left, right or center
+    # #plot starting node
+    # plt.plot(starting_node_xy[0],starting_node_xy[1], 'r.')
     
-            # plt.plot(starting_node_xy[0],starting_node_xy[1], 'r.')
+    #         # plt.plot(starting_node_xy[0],starting_node_xy[1], 'r.')
 
     
-    plt.annotate(str(starting_node), # this is the text
-                    (starting_node_xy[0],starting_node_xy[1]), # these are the coordinates to position the label
-                    textcoords="offset points", # how to position the text
-                    xytext=(0,10), # distance from text to points (x,y)
-                    ha='center') # horizontal alignment can be left, right or center
-    # draw image
-    for (s,e) in graph.edges():
-        ps = graph[s][e]['pts']
-        plt.plot(ps[:,1], ps[:,0], 'green')
+    # plt.annotate(str(starting_node), # this is the text
+    #                 (starting_node_xy[0],starting_node_xy[1]), # these are the coordinates to position the label
+    #                 textcoords="offset points", # how to position the text
+    #                 xytext=(0,10), # distance from text to points (x,y)
+    #                 ha='center') # horizontal alignment can be left, right or center
+    # # draw image
+    # for (s,e) in graph.edges():
+    #     ps = graph[s][e]['pts']
+    #     plt.plot(ps[:,1], ps[:,0], 'green')
         
 
-    plt.imshow(image)
-    plt.show()
+    # plt.imshow(image)
+    # plt.show()
     return starting_node, starting_node_xy
 
