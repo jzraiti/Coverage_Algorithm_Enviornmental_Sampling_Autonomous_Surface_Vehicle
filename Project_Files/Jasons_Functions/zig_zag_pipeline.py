@@ -103,7 +103,7 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
     image2 = (lotsa_inverse_skeletons[3][0]>0)*255 # grab skeleton lee, medial axis 
     # show_image(image1)
     # show_image(image2)
-    cv2.imwrite( "medial_axis_inverse_skeleton.png", new_image*255 )
+    cv2.imwrite( "medial_axis_inverse_skeleton.png", image2*255 )
 
     make_negative_1 = False
     make_negative_2 = True
@@ -113,7 +113,7 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
 
     #combine boundary and skeleton images to create full boundary image --------------------------------------------
     image1 = new_image
-    image2 = trimmed_skeletons[3]
+    image2 = trimmed_skeletons[3] 
 
     # show_image(image1)
     # show_image(image2)
@@ -121,7 +121,7 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
     make_negative_1 = False
     make_negative_2 = True
 
-    new_image = overlay_images (image1,image2,make_negative_1, make_negative_2)
+    new_image = overlay_images (image1,image2,make_negative_1, make_negative_2) #Error checking notes: seems to work good up to this point
 
     # show_image(new_image)
 
@@ -139,7 +139,7 @@ def zig_zag_pipeline(path_to_bw_boundaries,path_to_config_file,launch_point_lat_
     path_to_boundary_image = bound_name
 
     # arbitrary value alert!!!! *************************************************
-    zig_zag_width = 8
+    zig_zag_width = 16 #used to be 8 but this should speed things up
 
     image,zig_zag_points_dict = zig_zag_full_image_3 ( path_to_skeleton, path_to_boundary_image, zig_zag_width) 
 

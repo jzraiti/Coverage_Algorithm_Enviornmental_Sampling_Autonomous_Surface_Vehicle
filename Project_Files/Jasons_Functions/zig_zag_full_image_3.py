@@ -45,11 +45,20 @@ def zig_zag_full_image_3 ( path_to_skeleton, path_to_boundary_image, zig_zag_wid
         x = int( (num_points - num_points%zig_zag_width) /zig_zag_width ) # this is to prevent the chunks of the line going past the endpoint
         remainder_pixels = num_points%zig_zag_width
         
+        #error checking:
+        #print("\nzig zag:" + str(s)+ " " + str(e) )
+
         #call actual zig_zag function
         for i in range(0 , x ):     #   i is just an integer, if even it will zig, if odd it will zag (x-1 because index at zero)
             if i == x-1: #make last zig zag go all the way to the end point #hopefully this will create a continuous graph
                 start_point = np.array([ points[ i  * zig_zag_width  ][0] , points[ i * zig_zag_width   ][1] ])
                 end_point   = np.array([ points[ (i+1) * zig_zag_width +remainder_pixels -1 ][0] , points[ (i+1) * zig_zag_width +remainder_pixels -1 ][1] ]) # - 1 here to keep things in bounds 
+
+                #Error checking:
+                #print("\nfinal point: " + str(points[-1][0]) + " " + str(points[-1][1]))
+                #print("marked end point: " + str(end_point[0]) + " " + str(end_point[1]))
+
+
             else: 
                 start_point = np.array([ points[ i  * zig_zag_width  ][0] , points[ i * zig_zag_width  ][1] ])
                 end_point   = np.array([ points[ (i+1) * zig_zag_width ][0] , points[ (i+1) * zig_zag_width  ][1] ])

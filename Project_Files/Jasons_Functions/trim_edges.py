@@ -39,19 +39,19 @@ def trim_edges(path,weight_threshold):
             # print('edge found')  
             if graph[s][e]['weight'] < weight_threshold:
                 
-                # print('trim this one')
+                #print('trim this one')
                 trimmed.append(graph[s][e]['pts'])
-                # plt.plot(ps[:,1], ps[:,0], 'green')
+                plt.plot(ps[:,1], ps[:,0], 'green')
             else:
-                # print('nah leave em be')
+                #print('nah leave em be')
                 new_array.append(graph[s][e]['pts'])
-                # plt.plot(ps[:,1], ps[:,0], 'red')
+                plt.plot(ps[:,1], ps[:,0], 'red')
         else:
-            # print("no matches")
+            #print("no matches")
             new_array.append(graph[s][e]['pts'])
-            # plt.plot(ps[:,1], ps[:,0], 'red')
+            plt.plot(ps[:,1], ps[:,0], 'red')
 
-    # plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
+    plt.imshow(image, cmap='gray') #map the image to black and white, white representing the line 
 
     # name = 'trimmed_' + str(path)
     # name = name.replace("/", "_")
@@ -59,10 +59,10 @@ def trim_edges(path,weight_threshold):
     # name = str(name) + '.png' 
     # plt.savefig(name, format="png")
     
-    # plt.show()
+    plt.show()
 
-
-    # ------- make new "image array" that can be written using cv2 -----
+    ''' THIS IS THE OLD WAY OF DOING IT
+        # ------- make new "image array" that can be written using cv2 -----
     black_image = np.zeros((image.shape[0],image.shape[1])) # get black background 
 
     # ---------------- get trimmed skeleton 
@@ -71,5 +71,17 @@ def trim_edges(path,weight_threshold):
         for point in edge:
             # print(point[0], point[1])
             new_image[point[0]][point[1]] = 255
+    '''
+
     
+
+
+    #lets try doing this the opposite way and only take out pixels marked for being trimmed
+    trimmed_image = image # get original image
+    for edge in trimmed:
+        for point in edge:
+            trimmed_image[point[0]][point[1]] = 0
+
+    new_image = trimmed_image
+    print("warning from trim_edges: new_array return value is no longer accurate")
     return new_array , new_image

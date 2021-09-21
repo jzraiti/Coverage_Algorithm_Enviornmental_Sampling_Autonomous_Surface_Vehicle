@@ -1,0 +1,6 @@
+total distance of graph at  zigzag_full.png  
+
+(in meters) is 4837.02365693666
+total distance (meters) :  4837.02365693666
+coverage metrics: 
+ max distance:  64.38167441127949 mean distance:  10.93583779869126
